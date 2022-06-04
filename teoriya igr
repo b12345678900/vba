@@ -1,0 +1,17 @@
+Sub hhh()
+Set kuda_vivodit = Application.InputBox("Êóäà âûâîäèòü", Type:=8)
+Set nachalo_tabl = Application.InputBox("Íà÷àëî òàáëèöû", Type:=8)
+For i = 0 To 5
+Range(kuda_vivodit.Address).Cells(Int(i / 3) + 1, Int(i Mod 3) + 1).Formula = "=r" & CStr(nachalo_tabl.Row + i) & "c" & CStr(nachalo_tabl.Column) & "*" & "r" & CStr(nachalo_tabl.Row + 5 - i) & "c" & CStr(nachalo_tabl.Column + 1) & "/12"
+Next
+End Sub
+
+Sub abc1()
+Set kuda_vivodit = Application.InputBox("Êóäà âûâîäèòü", Type:=8)
+Set nachalo_polymatrizy_srednih = Application.InputBox("Íà÷àëî ïîëóìàòðèû ñðåäíèõ", Type:=8)
+Set nachalo_vesov = Application.InputBox("íà÷àëî âåñîâ", Type:=8)
+For i = 0 To 5
+Range(kuda_vivodit.Address).Cells(i + 1, 1).Formula = "=r" & CStr(nachalo_polymatrizy_srednih.Row + Int(i / 3)) & "c" & CStr(nachalo_polymatrizy_srednih.Column + i Mod 3) & "*" & "r" & CStr(nachalo_vesov.Row + i) & "c" & CStr(nachalo_vesov.Column) & "%"
+Range(kuda_vivodit.Address).Cells(5 - i + 1, 2).Formula = "=r" & CStr(nachalo_polymatrizy_srednih.Row + Int(i / 3)) & "c" & CStr(nachalo_polymatrizy_srednih.Column + i Mod 3) & "*" & "r" & CStr(nachalo_vesov.Row + 5 - i) & "c" & CStr(nachalo_vesov.Column + 1) & "%"
+Next
+End Sub
